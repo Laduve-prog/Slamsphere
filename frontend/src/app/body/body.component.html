@@ -1,9 +1,0 @@
-<p>Bonjour {{nom}}</p>
-<button [disabled]="!valid" (click)="click ()">Envoyer</button>
-
-<p>{{message}}</p>
-
-<input type="text" [(ngModel)]="nom"/>
-
-<app-child [nomChild] = "nom" (change) = "logPrenomNom($event)"></app-child>
-```
