@@ -33,7 +33,7 @@ RUN mkdir -p /var/log/supervisor
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Copy projects
-COPY --from=builder-frontend /app/dist/tp2/browser/ /var/www/html
+COPY --from=builder-frontend /app/dist/project-angular/browser/ /var/www/html
 #COPY --from=builder-backend /app/dist /app/backend
 
 # Set working directory
