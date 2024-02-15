@@ -1,0 +1,80 @@
+<div class="m-80 rounded-lg bg-white">
+    <div class="flex grid-cols-3 justify-around">
+        <div>
+            <form [formGroup]="signupForm" class="w-full max-w-lg px-3 mt-6 mb-6" (ngSubmit)="onSubmit()">
+                <h1 class="mb-6 text-left font-extrabold uppercase">Amenez votre jeu vers de nouveaux sommets</h1>
+                <div class="flex flex-wrap gap-2">
+                    <div class="w-full">
+                        <label class="form-label" for="pseudo"> PSEUDO </label>
+                        <input formControlName="pseudo" class="form-input" id="pseudo" name="pseudo"  type="text" placeholder="D-Wade" required/>
+                        <div class="errors" *ngIf="signupForm.get('pseudo')?.dirty && signupForm.get('pseudo')?.errors?.['required']">Le pseudo est requis</div>
+                    </div>
+                    <div class="w-full md:mb-0 md:w-1/2">
+                        <label class="form-label" for="lastname"> Nom </label>
+                        <input formControlName="lastname" class="form-input" id="lastname" name="lastname"  type="text" placeholder="Wade" required/>
+                        <div class="errors"*ngIf="signupForm.get('lastname')?.dirty && signupForm.get('lastname')?.errors?.['required']">Le nom est requis</div>
+                    </div>
+                    <div class="w-full flex-1">
+                        <label class="form-label" for="firstname"> Prénom </label>
+                        <input formControlName="firstname" class="form-input" id="firstname" name="firstname"  type="text" placeholder="Dwayne" required />
+                        <div class="errors" *ngIf="signupForm.get('firstname')?.dirty && signupForm.get('firstname')?.errors?.['required']">Le nom est requis</div>
+                    </div>
+                    <div class="w-full">
+                        <label class="form-label" for="email"> e-mail </label>
+                        <input formControlName="email" class="form-input" id="email" name="email"  type="text" placeholder="dwayne.wade@gmail.com" required/>
+                        <div class="errors" *ngIf="signupForm.get('email')?.dirty && signupForm.get('email')?.errors?.['required']">L'email est requis</div>
+                        <div class="errors" *ngIf="signupForm.get('email')?.dirty && signupForm.get('email')?.errors?.['email']">format invalide</div>
+                    </div>
+                    <div class="w-full">
+                        <label class="form-label" for="address"> adresse </label>
+                        <input formControlName="address" class="form-input" id="address" name="address"  type="text" placeholder="100 South Pointe Drive" required/>
+                        <div class="errors" *ngIf="signupForm.get('address')?.dirty && signupForm.get('address')?.errors?.['required']">L'adresse est requise</div>
+                    </div>
+                    <div class="w-full">
+                        <label class="form-label" for="phone"> Téléphone </label>
+                        <input formControlName="phone" class="form-input" id="phone" name="phone"  type="text" placeholder="0639785966" required/>
+                        <div class="errors" *ngIf="signupForm.get('phone')?.dirty && signupForm.get('phone')?.errors?.['required']">Le numéro est requis</div>
+                    </div>
+                </div>
+                <div class="mb-3 flex flex-row gap-2">
+                    <div class="w-full flex-1 md:mb-0">
+                        <label class="form-label" for="city"> City </label>
+                        <input formControlName="city" class="form-input" id="city" name="city"  type="text" placeholder="Miami" required/>
+                        <div class="errors" *ngIf="signupForm.get('city')?.dirty && signupForm.get('city')?.errors?.['required']">La ville est requise</div>
+                    </div>
+                    <div class="mb-3 w-full flex-1 md:mb-0">
+                        <label class="form-label" for="state"> Pays </label>
+                        <div class="relative">
+                            <input formControlName="country" class="form-input" id="country" name="country"  type="text" placeholder="USA" required/>
+                            <div class="errors" *ngIf="signupForm.get('country')?.dirty && signupForm.get('country')?.errors?.['required']">Le pays est requis</div>
+                        </div>
+                    </div>
+                    <div class="mb-3 w-full flex-1 md:mb-0">
+                        <label class="form-label" for="postalCode"> Zip </label>
+                        <input formControlName="postalCode" class="form-input" id="postalCode" name="postalCode" type="text" placeholder="33101" required/>
+                        <div class="errors" *ngIf="signupForm.get('postalCode')?.dirty && signupForm.get('postalCode')?.errors?.['required']">Le zip est requis</div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap">
+                    <div class="w-full">
+                        <label class="form-label" for="password"> Mot de passe </label>
+                        <input formControlName="password" class="form-input" id="password" name="password"  type="password" placeholder="******************" required/>
+                        <div class="errors" *ngIf="signupForm.get('password')?.dirty && signupForm.get('password')?.errors?.['required']">le mdp est requis</div>
+                        <div class="errors" *ngIf="signupForm.get('password')?.dirty && signupForm.get('password')?.errors?.['minlength']">le mdp doit faire au moins {{ PASSWORD_MIN_LENGTH }} charactères.</div>
+                    </div>
+                    <div class="w-full">
+                        <label class="form-label" for="confpassword"> Confirmation du mot de passe </label>
+                        <input formControlName="passwordConfirm" class="form-input" id="passwordConfirm" name="passwordConfirm" type="password" placeholder="******************" required/>
+                        <div class="errors" *ngIf="signupForm.get('passwordConfirm')?.dirty && signupForm.get('passwordConfirm')?.errors?.['required']">la confirmation est requise</div>
+                        <div class="errors" *ngIf="signupForm.get('passwordConfirm')?.dirty && signupForm.get('passwordConfirm')?.errors?.['passwordsDoNotMatch']">les MDP ne correspondent pas</div>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <div class="flex justify-end">
+                        <button class="btn-submit" type="submit">REJOINS-NOUS</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

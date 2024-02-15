@@ -1,0 +1,15 @@
+.form-label {
+    @apply mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700;
+}
+
+.form-input {
+    @apply mb-3 block w-full appearance-none rounded border bg-gray-200 px-4 py-3 leading-tight text-gray-700 focus:bg-white focus:outline-none;
+}
+
+.btn-submit {
+    @apply  mt-6 rounded-3xl bg-black px-4 py-2 font-bold text-white focus:outline-none;
+}
+
+.errors{
+    @apply text-red-500 text-xs italic;
+}
