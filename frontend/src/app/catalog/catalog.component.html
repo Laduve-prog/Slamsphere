@@ -1,0 +1,13 @@
+<section class="flex flex-col sm:flex-row">
+  <aside class="filter bg-gray-100 p-4 flex-shrink-0 sm:w-1/4 lg:w-1/5">
+    <app-filter></app-filter>
+  </aside>
+  <main class=" bg-white product-list-container p-4 w-full sm:w-3/4 lg:w-4/5">
+    <h2 class="p-8 font-fira_code font-bold text-black">Liste des Produits :</h2>
+    <ul class="product-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <li *ngFor="let product of products | async">
+        <app-product [product]="product"></app-product>
+      </li>
+    </ul>
+  </main>
+</section>
