@@ -1,0 +1,20 @@
+<div class="py-4">
+    <h2 class="text-tertiary text-2xl font-bold text-center mb-5">
+      Liste des Cartes
+    </h2>
+    <div class="flex flex-wrap justify-center gap-4">
+      <div
+        *ngFor="let card of cards"
+        class="bg-white max-w-sm rounded-lg shadow-lg p-4 hover:shadow-2xl transition-shadow duration-300"
+      >
+        <h3 class="text-black text-xl font-semibold mb-2">{{ card.nom }}</h3>
+        <p class="text-black">
+          <strong>Code de la carte:</strong> {{ card.code }}
+        </p>
+        <p class="text-gray-700"><strong>CCV:</strong> {{ card.ccv }}</p>
+        <p class="text-gray-700">
+          <strong>Expiration:</strong> {{ card.expiration }}
+        </p>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,84 @@
+<form
+  [formGroup]="cardForm"
+  (ngSubmit)="onSubmit()"
+  class="bg-white rounded-lg shadow-lg text-black p-4"
+>
+  <h1 class="text-3xl font-bold text-center mb-5">
+    Ajouter une carte
+  </h1>
+  <div class="flex flex-col">
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3 mb-6 md:mb-0">
+        <label
+          class="block uppercase tracking-wide text-xs font-bold mb-2"
+          for="nom"
+        >
+          Nom de la carte
+        </label>
+        <input
+          formControlName="nom"
+          type="text"
+          placeholder="Nom de la carte"
+          class="block appearance-none w-full bg-gray-100 text-black py-3 px-4 pr-8 rounded-xl border-gray-500 border-opacity-50 border-2 leading-tight focus:outline-none focus:bg-gray-700 focus:border-white"
+          required
+        />
+      </div>
+      <div class="w-full px-3 mb-6 md:mb-0">
+        <label
+          class="block uppercase tracking-wide text-xs font-bold mb-2"
+          for="code"
+        >
+          Code de la carte
+        </label>
+        <input
+          formControlName="code"
+          type="text"
+          placeholder="1234 5678 9012 3456"
+          class="block appearance-none w-full bg-gray-100 text-black py-3 px-4 pr-8 rounded-xl border-gray-500 border-opacity-50 border-2 leading-tight focus:outline-none focus:bg-gray-700 focus:border-white"
+          required
+        />
+      </div>
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          class="block uppercase tracking-wide text-xs font-bold mb-2"
+          for="ccv"
+        >
+          CCV
+        </label>
+        <input
+          formControlName="ccv"
+          type="text"
+          placeholder="123"
+          class="block appearance-none w-full bg-gray-100 text-black py-3 px-4 pr-8 rounded-xl border-gray-500 border-opacity-50 border-2 leading-tight focus:outline-none focus:bg-gray-700 focus:border-white"
+          required
+        />
+      </div>
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          class="block uppercase tracking-wide text-xs font-bold mb-2"
+          for="expiration"
+        >
+          Mois/Année
+        </label>
+        <input
+          formControlName="expiration"
+          type="text"
+          placeholder="MM/AA"
+          class="block appearance-none w-full bg-gray-100 text-black py-3 px-4 pr-8 rounded-xl border-gray-500 border-opacity-50 border-2 leading-tight focus:outline-none focus:bg-gray-700 focus:border-white"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <button
+    type="submit"
+    [ngClass]="{
+      'bg-gray-800': cardForm.valid,
+      'cursor-not-allowed opacity-50': !cardForm.valid
+    }"
+    [disabled]="!cardForm.valid"
+    class="mt-2 px-4 py-2 rounded text-white bg-black"
+  >
+    Ajouter la carte
+  </button>
+</form>
