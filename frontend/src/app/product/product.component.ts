@@ -1,4 +1,6 @@
 import { Component , Input } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { AddProduct } from '../cart/cart-action';
 import { Product } from '../models/product';
 
 @Component({
@@ -25,5 +27,9 @@ export class ProductComponent {
     size: ['S', 'M', 'L'],
   }
 
-  constructor() {}
+  constructor(private store: Store) {}
+
+  addProduct(product : Product){
+    this.store.dispatch(new AddProduct(product));
+  }
 }
