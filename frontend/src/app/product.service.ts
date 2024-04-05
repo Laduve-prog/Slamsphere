@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable , BehaviorSubject} from 'rxjs';
-import { Product } from './models/product';
+import { Product } from './shared/models/product';
 import { environment } from './environments/environment';
 import { map, switchMap } from 'rxjs/operators';
 

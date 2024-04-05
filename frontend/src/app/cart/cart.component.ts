@@ -1,8 +1,8 @@
 import { Select } from '@ngxs/store';
 import { Component } from '@angular/core';
-import { Product } from '../models/product';
+import { Product } from '../shared/models/product';
 import { CommonModule } from '@angular/common';
-import { CartState } from './cart.state';
+import { CartState } from '../shared/states/cart-state';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -15,6 +15,8 @@ import { Observable } from 'rxjs';
 export class CartComponent {
 
   @Select(CartState.getCartProducts) declare cartProducts$: Observable<Product[]>;
+  @Select(CartState.totalBasketPrice) declare totalBasketPrice$: Observable<number>;
+  @Select(CartState.numberOfProductsInCart) declare numberOfProductsInCart$ : Observable<number>; 
 
   constructor(){}
 }

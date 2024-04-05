@@ -3,10 +3,6 @@
 <div>
     <div class="filter-item mb-2"> <!-- Added margin-bottom class -->
         <label class="text-black font-semibold" for="brand">Marque : </label>
-        <select class="bg-white" name="brand" id="brand" [(ngModel)]="selectedBrand">
-            <option value="">Toutes les marques</option>
-            <option *ngFor="let brand of brands" [value]="brand">{{ brand }}</option>
-        </select>
     </div>
       
     <div class="filter-item mb-2"> <!-- Added margin-bottom class -->

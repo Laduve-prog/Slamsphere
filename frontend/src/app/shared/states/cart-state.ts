@@ -1,7 +1,7 @@
 import { State , Action , StateContext, Selector } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 import { ProductWrapper } from '../models/product-wrapper';
-import { AddProduct , RemoveProduct , ClearCart } from './cart-action';
+import { AddProduct , RemoveProduct , ClearCart } from '../actions/cart-action';
 
 export interface CartStateModel{
     products: ProductWrapper[];
@@ -16,9 +16,7 @@ export interface CartStateModel{
 
 @Injectable()
 export class CartState{
-
     constructor(){}
-
     @Selector()
     static getCartProducts(state: CartStateModel){
         return state.products;
@@ -26,7 +24,9 @@ export class CartState{
 
     @Selector()
     static totalBasketPrice(state: CartStateModel){
-        //TODO
+        return state.products.reduce((total, productWrapper) => {
+            return total + (productWrapper.product.price * productWrapper.quantity);
+          }, 0);
     }
 
     @Selector()
@@ -45,7 +45,12 @@ export class CartState{
 
     @Action(RemoveProduct)
     remove(ctx: StateContext<CartStateModel>,action: AddProduct){
-       
+        const state = ctx.getState();
+        const filteredProducts = state.products.filter(p => p.product.id !== action.product.id);
+        ctx.setState({
+          ...state,
+          products: filteredProducts
+        });
     }
 
     @Action(ClearCart)

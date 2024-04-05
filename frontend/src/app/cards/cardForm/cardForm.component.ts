@@ -1,6 +1,6 @@
 import { Component , OnInit} from '@angular/core';
 import { FormBuilder , FormGroup , Validators } from '@angular/forms';
-import { Cards } from '../../models/cards'
+import { Cards } from '../../shared/models/cards'
 import { CardService } from '../card.service';
 
 @Component({
