@@ -6,7 +6,7 @@ import { CardsComponent } from './cards/cards.component';
 import { CartComponent } from './cart/cart.component';
 
 export const routes: Routes = [
-  { path: 'catalog', component: CatalogComponent },
+  { path: 'catalog', loadComponent: () =>import('./catalog/catalog.component').then((catalog)=> catalog.CatalogComponent),},
   { path: 'signup', component: SignupComponent },
   { path: '', component: HeroComponent },
   { path: 'cb', component: CardsComponent},

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { CardsModule } from './cards.module';
-import { CardFormComponent } from './cardForm/cardForm.component';
-import { CardsListComponent } from './cards-list/cards-list.component';
 
 @Component({
   selector: 'app-cards',

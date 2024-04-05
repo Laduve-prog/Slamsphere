@@ -44,13 +44,12 @@ export class CartState{
     }
 
     @Action(RemoveProduct)
-    remove(ctx: StateContext<CartStateModel>,action: AddProduct){
+    remove(ctx: StateContext<CartStateModel>,action: RemoveProduct){
         const state = ctx.getState();
-        const filteredProducts = state.products.filter(p => p.product.id !== action.product.id);
-        ctx.setState({
-          ...state,
-          products: filteredProducts
-        });
+        const productToRemove = state.products.find(product => product.product.id === action.id)?.product;
+        ctx.patchState({
+            products: state.products.filter(product => product.product.id !== action.id)
+        })
     }
 
     @Action(ClearCart)

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet , RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CardsModule } from './cards/cards.module';
 
@@ -12,10 +12,10 @@ import { CatalogComponent } from './catalog/catalog.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet , HeaderComponent, FooterComponent, SignupComponent , CommonModule , CatalogComponent , CardsModule], 
+  imports: [RouterOutlet , HeaderComponent, FooterComponent, SignupComponent , CommonModule , CatalogComponent , CardsModule , RouterLink], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'project-angular';
+  title = 'SlamSphere';
 }

@@ -1,8 +1,10 @@
 <div class="m-6 card card-compact cursor-pointer rounded-lg shadow-md bg-white">
   <figure><img class="w-full h-full" [src]="product.imageUrl" /></figure>
-  <div class="card-body">
-    <h2 class="card-title text-lg font-bold mb-2">{{ product.name }}</h2>
-    <p class="text-gray-600 mb-2">{{ product.price }} €</p>
+  <div class="card-body flex-col">
+    <div>
+      <h2 class="card-title text-lg font-bold mb-2">{{ product.name }}</h2>
+      <p class="text-gray-600 mb-2">{{ product.price }} €</p>
+    </div>
+    <button (click)="addProduct(product)">Ajouter</button>
   </div>
-  <button (click)="addProduct(product)">Ajouter au panier</button>
 </div>

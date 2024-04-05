@@ -1,0 +1,14 @@
+<div class="flex flex-row justify-between border-gray-200 border-b">
+    <div class="flex flex-row gap-3 mx-5">
+        <img [src]="product().product.imageUrl" alt="Product Image" class="object-scale-down w-28 h-28 sm:w-32 sm:h-32">
+        <div class="product-info mt-4">
+        <h3 class="text-black font-bold">{{product().product.name}}</h3>
+        <p>{{product().product.brand}}</p>
+        <p class="text-black mt-5">{{product().product.price}} €</p>
+        </div>
+    </div>
+    <button (click)="RemoveProduct()">
+        <img class="h-5 w-5" src="../../../assets/delete.png"/>
+    </button>
+</div>
+  
