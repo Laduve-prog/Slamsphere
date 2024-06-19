@@ -1,15 +1,17 @@
-require('dotenv').config();
-
 module.exports = {
-  development: {
-    dialect: 'sqlite',
-    storage: process.env.DB_STORAGE,
-  },
-  production: {
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
-    dialect: 'postgres',
-  },
-};
+    development: {
+      dialect: "postgres",
+      protocol: "postgres",
+      host: "dpg-cppetgmehbks73c1ai7g-a.frankfurt-postgres.render.com",
+      username: "slamsphere_db_user",
+      password: "BG3Wew9CbGsucYqBgfCoYEYVsJlPSybj",
+      database: "slamsphere_db",
+      dialectOptions: {
+        ssl: true,
+        native: true,
+      },
+      define: {
+        timestamps: false,
+      },
+    },
+  };

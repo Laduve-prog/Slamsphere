@@ -2,7 +2,7 @@ import { Component , EventEmitter , Input , Output} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule , FormControl, FormGroup, Validators} from '@angular/forms';
-
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -15,6 +15,10 @@ export class SignupComponent {
   @Input() submitted = false; // Use @Input() to receive submitted state from parent
   @Output() submittedData = new EventEmitter<FormGroup>();
   @Output() submittedChange = new EventEmitter<boolean>();
+
+  constructor(private userService: UserService) {
+   
+  }
 
 
   PASSWORD_MIN_LENGTH = 8;
@@ -39,6 +43,18 @@ export class SignupComponent {
       this.submitted = true;
       this.submittedChange.emit(this.submitted);
       this.submittedData.emit(this.signupForm);
+
+      // Call signup service method
+      this.userService.signup(this.signupForm.value).subscribe(
+        response => {
+          console.log('Signup successful!', response);
+          // Optionally, handle successful signup response
+        },
+        error => {
+          console.error('Error during signup:', error);
+          // Optionally, handle signup error
+        }
+      );
     }
     else{
       this.markAllAsDirty(this.signupForm);

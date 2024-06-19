@@ -23,7 +23,7 @@ export class ProductService {
   public getProducts(): Observable<Product[]> {
     return this.term.pipe(
       switchMap((criteria: { name: string }) =>
-        this.http.get<Product[]>(environment.backendClient).pipe(
+        this.http.get<Product[]>(environment.apiUrl + environment.productsEndpoint).pipe(
           map(products => 
             products.filter((product: Product) => 
               (!criteria.name || product.name.toLowerCase().includes(criteria.name.toLowerCase()))

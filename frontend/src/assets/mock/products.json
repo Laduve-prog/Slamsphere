@@ -8,7 +8,8 @@
     "description": "A low-top basketball shoe designed for Kyrie Irving's quick first step and dynamic playing style. Features a breathable mesh upper, responsive cushioning, and a secure lockdown fit.",
     "imageUrl": "assets/images/Kyrie_5.jpg",
     "stock": 25,
-    "size": ["8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"],
+    "featured" : true,
+    "active": true,
     "rating": "4.2"
   },
   {
@@ -20,7 +21,8 @@
     "description": "The signature shoe of LeBron James, offering maximum support, cushioning, and responsiveness for powerful athletes.",
     "imageUrl": "assets/images/NIKE_LEBRON.jpg",
     "stock": 10,
-    "size": ["9", "9.5", "10", "10.5", "11", "11.5", "12", "13", "14"],
+    "featured" : true,
+    "active": true,
     "rating": "4.7"
   },
   {
@@ -31,7 +33,9 @@
     "price": 109.99,
     "description": "A comfortable and stylish basketball shoe featuring a plaid upper, perfect for on-court performance and off-court style.",
     "imageUrl": "assets/images/Nike_PG.jpg",
-    "size": ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "12"],
+    "stock": 15,
+    "featured" : true,
+    "active": true,
     "rating": "4.0"
   },
   {
@@ -43,7 +47,8 @@
     "description": "Lightweight and responsive basketball shoe designed for Kyrie Irving's signature quick cuts and agility.",
     "imageUrl": "assets/images/Kyrie_8.jpg",
     "stock": 35,
-    "size": ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "11", "12"],
+    "featured" : true,
+    "active": true,
     "rating": "4.5"
   }
 ]

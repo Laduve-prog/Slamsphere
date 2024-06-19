@@ -1,9 +1,5 @@
 const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const { sequelize } = require('./models');
-const userRoutes = require('./routes/userRoutes');
-const authRoutes = require('./routes/authRoutes');
+const cors = require('cors');
 
 const app = express();
 
@@ -17,17 +13,26 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(bodyParser.json());
+app.use(express.json());
 
-const PORT = process.env.PORT || 1025;
-
-app.use('/api/users', userRoutes);
-app.use('/api/auth', authRoutes);
-
-sequelize.sync().then(() => {
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to CNAM application." });
+  });
+  
+  const db = require("./src/models");
+  
+  db.sequelize
+    .sync()
+    .then(() => {
+      console.log("Synced db.");
+    })
+    .catch((err) => {
+      console.log("Failed to sync db: " + err.message);
+    });
+  
+  require("./src/routes")(app);
+  
+  const PORT = 443;
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
-  });
-}).catch((error) => {
-  console.error('Unable to connect to the database:', error);
 });
